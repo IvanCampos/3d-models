@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3D Models</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .grid-item a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .grid-item a:hover {
+            transform: scale(1.05);
+        }
+
+        .image-class {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>3D Models Gallery</h1>
+    <div class="grid-container" id="modelGrid"></div>
+
+    <script>
+        // Array of model names (without extension)
+        const models = ['uniqueShape1']; // Add or remove model names as needed
+
+        const gridContainer = document.getElementById('modelGrid');
+
+        models.forEach(modelName => {
+            // Create a container for each grid item
+            const gridItem = document.createElement('div');
+            gridItem.className = 'grid-item';
+
+            // Create anchor element with rel="ar" to enable AR QuickLook
+            const anchor = document.createElement('a');
+            anchor.setAttribute('rel', 'ar');
+            anchor.href = `/models/${modelName}.usd`;
+
+            // Create the image element for the thumbnail
+            const image = document.createElement('img');
+            image.className = 'image-class';
+            image.src = `/thumbnails/${modelName}.png`;
+            image.alt = modelName;
+
+            // Build the element structure
+            anchor.appendChild(image);
+            gridItem.appendChild(anchor);
+            gridContainer.appendChild(gridItem);
+        });
+    </script>
+</body>
+
+</html>
