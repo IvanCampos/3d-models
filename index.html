@@ -64,12 +64,12 @@
             // Create anchor element with rel="ar" to enable AR QuickLook
             const anchor = document.createElement('a');
             anchor.setAttribute('rel', 'ar');
-            anchor.href = `/models/${modelName}.usd`;
+            anchor.href = `models/${modelName}.usd`;
 
             // Create the image element for the thumbnail
             const image = document.createElement('img');
             image.className = 'image-class';
-            image.src = `/thumbnails/${modelName}.png`;
+            image.src = `thumbnails/${modelName}.png`;
             image.alt = modelName;
 
             // Build the element structure
