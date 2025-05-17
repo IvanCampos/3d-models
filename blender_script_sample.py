@@ -50,7 +50,9 @@ if bsdf:
         # Build pure Emission node
         nodes = mat.node_tree.nodes
         links = mat.node_tree.links
-        for node in nodes:
+        # Avoid modifying the collection while iterating by
+        # converting it to a list first
+        for node in list(nodes):
             nodes.remove(node)
         emission_node = nodes.new("ShaderNodeEmission")
         emission_node.inputs["Color"].default_value    = (0.0, 1.0, 1.0, 1.0)
