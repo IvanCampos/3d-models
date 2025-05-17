@@ -1,5 +1,5 @@
 # 3d-models
-Collection of 3D models generated with OpenAI o1 Pro using the Blender Python API  
+Collection of 3D models generated with OpenAI o1 Pro using the Blender Python API
 
 ## Adding a model within a visionOS RealityView
 ```
