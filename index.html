@@ -80,6 +80,7 @@
         ];
 
         const gridContainer = document.getElementById('modelGrid');
+        const fragment = document.createDocumentFragment();
 
         models.forEach(modelName => {
             // Create a container for each grid item
@@ -96,12 +97,15 @@
             image.className = 'image-class';
             image.src = `thumbnails/${modelName}.png`;
             image.alt = modelName;
+            image.loading = 'lazy';
 
             // Build the element structure
             anchor.appendChild(image);
             gridItem.appendChild(anchor);
-            gridContainer.appendChild(gridItem);
+            fragment.appendChild(gridItem);
         });
+
+        gridContainer.appendChild(fragment);
     </script>
 </body>
 
